@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wishlist - Thriftcore</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="bootstrap.css">
+    <link rel="stylesheet" href="wishlist.css"> 
+    <style>
+        /* CSS for Goth aesthetic */
+        body {
+            background-color:#b6c197; 
+            color: #ffffff; /* Text color */
+        }
+
+        .jumbotron {
+            background-color: #333333;
+            color: black;
+        }
+
+        .card {
+            background-color: #fefae0;
+            border: 1px solid #faedcd
+            ; 
+        }
+
+        .card-title {
+            color: brown;
+        }
+
+        .btn-primary {
+            background-color: black; 
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: black
+            ; 
+        }
+        .jumbotron{ 
+            font-family: 'Times New Roman', Times, serif;
+
+        }
+        .col-lg-4{
+            color: #401b1b;
+            
+        }
+        .chinnu{
+            margin-top:5px;
+           
+        }
+    </style>
+</head>
+<body>
+  
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">SRM Food Court</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About us</a>
+                    </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="checkout.html">Checkout</a>
+                            </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="wishlist.html">Wishlist</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="juicespot.html">Juicespot</a>
+                        </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">My Wishlist</h2>
+        <div class="row">
+            <!-- Example wishlist items -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                < class="card">
+                    <img src="https://cdn.britannica.com/35/225835-050-A5CC289A/Indian-one-pot-meal-for-party.jpg" class="card-img-top" alt="Product 1">
+                    < class="card-body">
+                        <h5 class="card-title">Hyderabadi Chicken Biryani</h5>
+                        <p class="card-text">Rs.100</p>
+                        <button class="btn btn-danger" onclick="removeItem(this)">Remove</button>
+                        <button class="btn btn-primary" onclick="moveToCart('Hyderabadi Chicken Biryani', 100)">Move to Cart</button>
+                    </div>
+                </div>
+            </div>
+        
+    
+            <!-- Example wishlist items -->
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card">
+                    <img src="https://apollosugar.com/wp-content/uploads/2018/12/Masala-Dosa-1024x683.jpg" class="card-img-top" alt="Product 1">
+                    <div class="card-body">
+                        <h5 class="card-title">Cheese Dosa</h5>
+                        <p class="card-text">Rs.120</p>
+                        <button class="btn btn-danger" onclick="removeItem(this)">Remove</button>
+                        <button class="btn btn-primary" onclick="moveToCart('Cheese Dosa', 120)">Move to Cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="bg-dark text-white text-center py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>About Us</h3>
+                    <p>Welcome to SRM Food Court, where there are wide ranges of dishes to evryone's taste. We curate a collection of different cuisine shops at affordable prices for the students. Our passion for food love and unique shops drives us to bring you the finest spots of SRM university. Explore our site and discover the best food spots of srm.</p>
+                </div>
+                <div class="col-md-6">
+                    <h3>Contact Us</h3>
+                    <p>If you have any questions, suggestions, or just want to say hello, feel free to reach out to us.</p>
+                    <p>Email: info@srmfoodcourt.com</p>
+                    <p>Phone: +91 (123) 456-7890</p>
+                    <p>Follow us on social media:</p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><a href="#">Facebook</a></li>
+                        <li class="list-inline-item"><a href="#">Twitter</a></li>
+                        <li class="list-inline-item"><a href="#">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="mt-4">
+            <p>&copy; 2024 ALP'S SRMfoodcourt. All rights reserved.</p>
+        </div>
+    </footer>
+
+    
+    <script src="wishlist.js"></script> <!-- Include the JavaScript file -->
+    <script src="bootstrap.js"></script>
+    <script>
+        function removeItem(button) {
+            var card = button.closest('.card');
+            card.remove();
+        }
+
+        function moveToCart(name, price) {
+            var cartItems = JSON.parse(localStorage.getItem('cartItems')) || [];
+            cartItems.push({ name: name, price: price });
+            localStorage.setItem('cartItems', JSON.stringify(cartItems));
+            alert(name + ' has been added to your cart!');
+        }
+    </script>
+    </body>
+    </html>

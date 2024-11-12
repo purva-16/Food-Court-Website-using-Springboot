@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Meta tags and CSS links -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" href="goth.css"> 
+    <title>Juice spots</title>
+    <style>
+        /* CSS for Goth aesthetic */
+        body {
+            background-color: #5D7b67; 
+            color: #ffffff;
+        }
+
+        .jumbotron {
+            background-color: #333333;
+            color: black;
+            overflow: hidden; /* Ensures the animation stays within the jumbotron */
+        }
+
+        .card {
+            background-color: #EAE7D6;
+            border: 1px solid #F1DEC6;
+        }
+
+        .card-title {
+            color: brown;
+        }
+
+        .btn-primary {
+            background-color: black; 
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: black;
+        }
+
+        .jumbotron { 
+            font-family: 'Times New Roman', Times, serif;
+        }
+
+        .col-lg-4 {
+            color: #401b1b;
+        }
+
+        .chinnu {
+            margin-top: 5px;
+        }
+
+        /* Marquee animation for the heading */
+        .marquee-heading {
+            display: inline-block;
+            white-space: nowrap;
+            animation: marquee-heading 15s linear infinite;
+        }
+
+        @keyframes marquee-heading {
+            from { transform: translateX(100%); }
+            to { transform: translateX(-100%); }
+        }
+    </style>
+</head>
+
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <a class="navbar-brand" href="#">SRM food court</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="index.html">Home</a></li>
+                    <li class="nav-item"><a class="nav-link" href="about.html">About Us</a></li>
+                    <li class="nav-item"><a class="nav-link" href="checkout.html">Checkout</a></li>
+                    <li class="nav-item"><a class="nav-link" href="wishlist.html">wishlist <i class="fa fa-spotify" aria-hidden="true"></i></a></li>
+                    <li class="nav-item"><a class="nav-link" href="login.html">Login</a></li>
+                </ul>
+            </div>
+        </div>  
+    </nav>
+    
+    <!-- Goth Fashion Jumbotron -->
+    <div class="jumbotron text-center mb-5" style="background-image: url('https://antdisplay.com/pub/media/wysiwyg/1_57.jpg'); background-size: cover; background-position: center; height: 450px; display: flex; justify-content: center; align-items: center; flex-direction: column; color: white;">
+        <h1 class="display-4 marquee-heading mb-3" style="font-weight: bold;"><strong>Juice Spots for Summer</strong></h1>
+        <p class="lead" style="font-size: 1.5rem; font-weight: 500;"><strong>Fuel your body and refresh your soul with every sip.</strong></p>
+    
+        <!-- Collapse button for Juice Spots -->
+        <div class="container mt-5" style="max-width: 500px;">
+            <button class="btn btn-primary btn-lg" data-bs-toggle="collapse" data-bs-target="#collapseJuiceSpots" style="width: 100%; font-size: 1.2rem;">
+                Learn More About Juice Spots
+            </button>
+    
+            <!-- Bootstrap Collapse Content for Juice Spots -->
+            <div id="collapseJuiceSpots" class="collapse mt-4">
+                <div class="card card-body" style="border-radius: 15px; background-color: #f9f9f9; padding: 20px; box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);">
+                    <p style="font-size: 1.1rem; line-height: 1.6; color: #333;">SRM Juice Spots offers a vibrant selection of freshly squeezed juices, perfect for a refreshing break. Each drink is crafted with the finest ingredients to fuel your day with natural energy. It's the go-to place for students and staff to recharge and enjoy a burst of flavor.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    
+
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <div class="container">
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="sortDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            SORT BY
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="sortDropdown">
+                            <li><a class="dropdown-item" href="#">NEWEST SPOTS</a></li>
+                            <li><a class="dropdown-item" href="#">LOWEST PRICE</a></li>
+                            <li><a class="dropdown-item" href="#">HIGHEST PRICE</a></li>
+                        </ul>
+                    </li>
+        
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="filterDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            FILTER
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="filterDropdown">
+                            <li><a class="dropdown-item" href="#">FLAVOUR</a></li>
+                            <li><a class="dropdown-item" href="#">SHAKES</a></li>
+                            <li><a class="dropdown-item" href="#">NEAR BY</a></li>
+                            <li><a class="dropdown-item" href="#">POPULARITY</a></li>
+                            <li><a class="dropdown-item" href="#">PRICE RANGE</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>        
+                
+            <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item"><a class="nav-link" href="cottagecore"></a></li>
+                    <li class="nav-item"><a class="nav-link" href="vintage"></a></li>
+                </ul>    
+            </div>
+    
+            <!-- Right-aligned search bar -->
+            <form class="form-inline ml-auto">
+                <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="chinnu btn-outline-success my-2 my-sm-0" style="margin-left: 50%" type="submit">Search</button>
+            </form>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="row">
+            <!-- Product 1 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100 p-3 shadow-sm" style="transition: transform 0.3s, box-shadow 0.3s;">
+                    <img src="https://img.restaurantguru.com/r966-Sunny-Days-SRM-University-Food-Court-exterior-2023-04.jpgA" class="card-img-top mb-3" alt="Sunny Days">
+                    <div class="card-body">
+                        <h5 class="card-title">Sunny Days</h5>
+                        <p class="card-text">A no seating juice store offering a wide range of drinks and snacks.</p>
+                        <p class="card-text"><strong>Price:</strong> Rs.10 to Rs.120</p>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a href="{{ url_for('productdetails') }}" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 2 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100 p-3 shadow-sm" style="transition: transform 0.3s, box-shadow 0.3s;">
+                    <img src="https://fastly.4sqi.net/img/general/600x600/C3FTBPJYVW23TYYHKKYG05CWBSBBXVR55HUI5Q3LUEZFFGBP.jpg" class="card-img-top mb-3" alt="Javagreen Juice Shop">
+                    <div class="card-body">
+                        <h5 class="card-title">Javagreen Juice Shop</h5>
+                        <p class="card-text">A cute little shop offering fresh juices and protein shakes.</p>
+                        <p class="card-text"><strong>Price:</strong> Rs.20 to Rs.90</p>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a href="{{ url_for('productdetails') }}" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+            <!-- Product 3 -->
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card h-100 p-3 shadow-sm" style="transition: transform 0.3s, box-shadow 0.3s;">
+                    <img src="https://img.restaurantguru.com/rf8e-Sunny-Days-SRM-University-Food-Court-burger-2023-04-1.jpg" class="card-img-top mb-3" alt="Duck Donalds">
+                    <div class="card-body">
+                        <h5 class="card-title">Duck Donalds</h5>
+                        <p class="card-text">SRM's favorite drink and snack spot with affordable prices.</p>
+                        <p class="card-text"><strong>Price:</strong> Rs.10 to Rs.70</p>
+                    </div>
+                    <div class="card-footer text-center">
+                        <a href="{{ url_for('productdetails') }}" class="btn btn-primary">View Details</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <style>
+        .card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        }
+        .card-footer {
+            background-color: transparent;
+            border-top: none;
+        }
+    </style>
+    
+
+    <footer class="bg-dark text-white text-center py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>About Us</h3>
+                    <p>Welcome to SRM Food Court, where there are wide ranges of dishes to everyone's taste. We curate a collection of different cuisine shops at affordable prices for the students. Our passion for food love and unique shops drives us to bring you the finest spots of SRM university. Explore our site and discover the best food spots of srm.</p>
+                </div>
+                <div class="col-md-6">
+                    <h3>Contact Us</h3>
+                    <p>If you have any questions, suggestions, or just want to say hello, feel free to reach out to us.</p>
+                    <p>Email: info@srmfoodcourt.com</p>
+                    <p>Phone: +91 (123) 456-7890</p>
+                    <p>Follow us on social media:</p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><a href="#">Facebook</a></li>
+                        <li class="list-inline-item"><a href="#">Twitter</a></li>
+                        <li class="list-inline-item"><a href="#">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="mt-4">
+            <p>&copy; 2024 ALP'S SRMfoodcourt. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+
+</

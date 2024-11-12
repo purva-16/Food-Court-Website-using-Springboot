@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - SRM Food Court</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <style>
+        body {
+            background-color: #fefae0; /* Light beige background color */
+        }
+
+        .about-content {
+            margin-top: 40px;
+        }
+
+        .about-heading {
+            font-size: 36px; /* Increased font size */
+            font-weight: bold; /* Made it bold */
+            margin-bottom: 20px;
+        }
+
+        .about-paragraph {
+            font-size: 18px;
+            line-height: 1.5;
+            margin-bottom: 20px;
+        }
+
+        .about-image {
+            max-width: 100%; /* Adjust image size to fit */
+            height: auto;
+            border-radius: 10px; /* Optional: Add some rounded corners */
+        }
+
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px 0;
+            text-align: center;
+            margin-top: 40px;
+        }
+
+        .footer a {
+            color: #fff;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        .footer a:hover {
+            text-decoration: underline;
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand about-heading" href="#">SRM Food Court</a> <!-- Updated heading style -->
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="juicespot.html">juicespot</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="wishlist.html">Wishlist</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="checkout.html">Checkout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container about-content">
+        <div class="row">
+            <div class="col-md-6">
+                <img src="https://srmrmp.edu.in/wp-content/uploads/2020/06/srm-food-court4.jpg" alt="About Us Image" class="img-fluid about-image"> <!-- Adjusted image size -->
+            </div>
+            <div class="col-md-6">
+                <marquee behavior="scroll" direction="left">
+                    <h2 class="about-heading">About SRM Food Court</h2>
+                </marquee>
+                <p class="about-paragraph">
+                    Welcome to SRM Food Court, your go-to guide for discovering and enjoying the diverse dining and shopping options available on our campus! Stay tuned to SRM Food Court for the latest updates, special promotions, and new store openings. Follow us on social media to stay in the loop and never miss out on the exciting offerings available right here on campus!
+                </p>
+                <p class="about-paragraph">
+                    Why venture far when everything you need is right here on campus? From popular food chains to unique local vendors, SRM Food Court showcases the best places to grab a bite between classes, hang out with friends, or fuel up for those long study sessions.
+                </p>
+                <p class="about-paragraph">
+                    Connect with fellow food lovers, share your culinary adventures, and stay updated on all things food at SRM. Follow us on social media, participate in polls, and be part of the conversation.
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p>&copy; 2024 SRM Food Court. All Rights Reserved.</p>
+        <div>
+            <a href="https://www.facebook.com" target="_blank">Facebook</a> |
+            <a href="https://www.instagram.com" target="_blank">Instagram</a> |
+            <a href="https://www.twitter.com" target="_blank">Twitter</a>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.min.js"></script>
+</body>
+
+</html>

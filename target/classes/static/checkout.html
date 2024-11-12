@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - SRM Food Court</title>
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #e9edc9;
+            color: #228b22; 
+        }
+
+        h1 {
+            margin-top: 50px; /* Adjust the value as needed */
+        }
+
+        .jumbotron {
+            background-color: #e9edc9; 
+            color: black; 
+        }
+
+        .card {
+            background-color: #fefae0;
+            border: none;
+            border-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Light shadow effect */
+        }
+
+        .card-title {
+            color: #228b22;
+        }
+
+        .btn-primary {
+            background-color: #8fbc8f;
+            border: none;
+            transition: transform 0.3s, background-color 0.3s; /* Add transition for smooth effect */
+        }
+
+        .btn-primary:hover {
+            background: rgb(255,151,0);
+            border: none;
+        }
+
+        /* Enlarged and color change when button is clicked */
+        .btn-primary:active, .btn-primary.clicked {
+            transform: scale(1.1); /* Enlarge the button */
+            background-color: #ff6347; /* Change to a different color */
+        }
+
+        .card {
+            background-color: #f0f0f0; /* Background color of the card */
+            padding: 20px; /* Padding inside the card */
+            border-radius: 8px; /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Subtle shadow */
+            max-width: 300px; /* Maximum width of the card */
+            margin: 20px; /* Margin around the card */
+            text-align: bottom; /* Center the text */
+        }
+
+        .card h1 {
+            font-weight: bold; /* Make the heading bold */
+            font-style: italic; /* Make the heading italic */
+            margin: 0; /* Remove default margin */
+        }
+
+        .payment-section {
+            display: none;
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+        }
+
+        /* Display section when corresponding radio button is checked */
+        #cod:checked ~ #cod-section,
+        #upi:checked ~ #upi-section,
+        #card:checked ~ #card-section {
+            display: block;
+        }
+    </style>
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand" href="#">SRM Food Court</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="index.html">Home</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About Us</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="checkout.html">Checkout</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="wishlist.html">Wishlist</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="juicespot.html">Juicespot</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="login.html">Login</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <!-- Checkout Content -->
+    <div class="container my-5">
+        <h2 class="mb-4">Checkout</h2>
+
+        <!-- Shipping Information -->
+        <div class="mb-4">
+            <h3>Delivery Address</h3>
+            <form>
+                <div class="form-group">
+                    <label for="name">Name</label>
+                    <input type="text" class="form-control" id="name" placeholder="Your Name">
+                </div>
+                <div class="form-group">
+                    <label for="address">House no , Street name </label>
+                    <input type="text" class="form-control" id="address" placeholder="Your Address">
+                </div>
+                <div class="form-group">
+                    <label for="city">Locality , city </label>
+                    <input type="text" class="form-control" id="city" placeholder="Your City">
+                </div>
+                <div class="form-group">
+                    <label for="zip">Zip Code</label>
+                    <input type="text" class="form-control" id="zip" placeholder="Zip Code">
+                </div>
+                <button type="submit" class="btn btn-primary">Confirm Delivery Address</button>
+            </form>
+        </div>
+
+        <!-- Order Summary -->
+        <div>
+            <h3>Order Summary</h3>
+            <ul id="cart-items"></ul>
+            <p><strong>Total:</strong> ₹<span id="total-price">0</span></p>
+        </div>
+        
+        <!-- Payment Method Options -->
+        <div>
+            <h2>Select Payment Method</h2>
+
+            <!-- Cash on Delivery Option -->
+            <div>
+                <input type="radio" id="cod" name="payment_method" value="cod" required>
+                <label for="cod">Cash on Delivery (COD)</label>
+            </div>
+
+            <!-- UPI Option -->
+            <div>
+                <input type="radio" id="upi" name="payment_method" value="upi" required>
+                <label for="upi">UPI</label>
+            </div>
+
+            <!-- Card Option -->
+            <div>
+                <input type="radio" id="card" name="payment_method" value="card" required>
+                <label for="card">Credit/Debit Card</label>
+            </div>
+        </div>    
+
+
+        <div id="cod-section" class="payment-section">
+            <p>You selected Cash on Delivery. Please have the exact amount ready when the order arrives.</p>
+        </div>
+
+        <!-- UPI Section -->
+        <div id="upi-section" class="payment-section">
+            <label for="upi-id">Enter your UPI ID:</label>
+            <input type="text" id="upi-id" name="upi_id" placeholder="example@upi">
+        </div>
+
+        <!-- Card Section -->
+        <div id="card-section" class="payment-section">
+            <label for="card-number">Card Number:</label>
+            <input type="text" id="card-number" name="card_number" placeholder="1234 5678 9012 3456">
+            <br>
+            <label for="expiry-date">Expiry Date:</label>
+            <input type="month" id="expiry-date" name="expiry_date">
+            <br>
+            <label for="cvv">CVV:</label>
+            <input type="text" id="cvv" name="cvv" placeholder="123">
+        </div>
+
+        
+        
+        <div class="mt-4">
+            <h3>Payment confirmation</h3>
+            <form>
+               
+                <button type="submit" class="btn btn-primary">Place Order</button>
+            </form>
+        </div>
+    </div>
+
+
+
+    <footer class="bg-dark text-white text-center py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6">
+                    <h3>About Us</h3>
+                    <p>Welcome to SRM Food Court, your go-to guide for discovering and enjoying the diverse dining and shopping options available on our campus! Stay tuned to SRM Food Court for the latest updates, special promotions, and new store openings. Follow us on social media to stay in the loop and never miss out on the exciting offerings available right here on campus!</p>
+                </div>
+                <div class="col-md-6">
+                    <h3>Contact Us</h3>
+                    <p>If you have any questions, suggestions, or just want to say hello, feel free to reach out to us.</p>
+                    <p>Email: info@srmfoodcourt.com</p>
+                    <p>Phone: +91 (123) 456-7890</p>
+                    <p>Follow us on social media:</p>
+                    <ul class="list-inline">
+                        <li class="list-inline-item"><a href="#">Facebook</a></li>
+                        <li class="list-inline-item"><a href="#">Twitter</a></li>
+                        <li class="list-inline-item"><a href="#">Instagram</a></li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <div class="mt-4">
+            <p>&copy; 2023 LAPD'S SRM FOOD COURT. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <!-- Bootstrap JS scripts here (jQuery and Bootstrap JS) -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.5.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Select payment method and show corresponding section
+            const codRadio = document.getElementById("cod");
+            const upiRadio = document.getElementById("upi");
+            const cardRadio = document.getElementById("card");
+            
+            const codSection = document.getElementById("cod-section");
+            const upiSection = document.getElementById("upi-section");
+            const cardSection = document.getElementById("card-section");
+            
+            // Function to hide all payment sections
+            function hideAllSections() {
+                codSection.style.display = "none";
+                upiSection.style.display = "none";
+                cardSection.style.display = "none";
+            }
+            
+            // Event listeners for radio buttons
+            codRadio.addEventListener("change", function () {
+                hideAllSections();
+                codSection.style.display = "block";
+            });
+    
+            upiRadio.addEventListener("change", function () {
+                hideAllSections();
+                upiSection.style.display = "block";
+            });
+    
+            cardRadio.addEventListener("change", function () {
+                hideAllSections();
+                cardSection.style.display = "block";
+            });
+    
+            // Form validation for delivery address
+            document.querySelector('form').addEventListener('submit', function (e) {
+                const name = document.getElementById('name').value.trim();
+                const address = document.getElementById('address').value.trim();
+                const city = document.getElementById('city').value.trim();
+                const zip = document.getElementById('zip').value.trim();
+    
+                if (!name || !address || !city || !zip) {
+                    e.preventDefault();
+                    alert("Please fill out all the required fields for delivery address.");
+                } else {
+                    alert("Delivery address confirmed!");
+                }
+            });
+    
+            // Button animation on click
+            const buttons = document.querySelectorAll('.btn-primary');
+            buttons.forEach(function (button) {
+                button.addEventListener('click', function () {
+                    // Add 'clicked' class for animation effect
+                    button.classList.add('clicked');
+                    
+                    // Remove 'clicked' class after animation completes
+                    setTimeout(function () {
+                        button.classList.remove('clicked');
+                    }, 300);
+                });
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+        // Get the cart items from localStorage
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        const cartItemsContainer = document.getElementById('cart-items');
+        const totalPriceContainer = document.getElementById('total-price');
+        let totalPrice = 0;
+
+        // Loop through the cart and display each item
+        cart.forEach(function(item) {
+            // Create a new list item element
+            const listItem = document.createElement('li');
+            listItem.innerHTML = `${item.name} - ₹${item.price} (from: ${item.shop})`;
+
+            // Add item to the cart container
+            cartItemsContainer.appendChild(listItem);
+
+            // Calculate the total price
+            totalPrice += parseFloat(item.price);
+        });
+
+        // Update the total price
+        totalPriceContainer.textContent = totalPrice;
+    });
+
+    document.querySelector('form').addEventListener('submit', function(e) {
+        e.preventDefault();  // Prevent the form from submitting normally
+        
+        // Clear the cart
+        localStorage.removeItem('cart');
+        
+        // Proceed with the order
+        alert('Order placed successfully!');
+    });
+
+
+    </script>
+    
+</body>
+</html>
